@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+	<meta charset='utf-8'>
+	<title>LightDialog 演示</title>
+	<style>
+		html{
+			font-size:14px;
+		}
+	</style>
+	<link rel="stylesheet" href="css/lightDialog.css">
+</head>
+<body>
+<div id="window" style="display: none;">
+	<p>这是窗口的内容</p>
+	<p>这是第二行内容</p>
+	<p>这是第三行内容</p>
+	<p>这是第四行内容</p>
+	<p>这是第五行内容</p>
+</div>
+
+<button id="create">创建</button>
+<button id="show">显示</button>
+<button id="hide">隐藏</button>
+<button id="full">全屏</button>
+<button id="size">尺寸</button>
+<button id="follow">跟随按钮</button>
+<button id="follow2" style="position:absolute;left:20px;top:100%">跟随按钮2</button>
+<button id="follow3" style="position:absolute;right:20px;top:100%">跟随按钮3</button>
+<button id="follow4" style="position:absolute;left:50%;top:100%">跟随按钮4</button>
+
+<!--使用 jquery 或 zepto 均可-->
+<script src="js/jquery-1.11.1.min.js"></script>
+<!--<script src="js/zepto.min.js"></script>-->
+<script src="js/lightDialog.js"></script>
+<script>
+	$(function () {
+		$('#create').bind('click',function () {
+			lightDialog = new $.lightDialog('#window',{});
+		});
+		$('#show').bind('click',function(){lightDialog.show()});
+		$('#hide').bind('click',function(){lightDialog.hide()});
+		$('#full').bind('click',function () { lightDialog.full() });
+		$('#size').bind('click',function () { lightDialog.size(400, 400); lightDialog.position('center', 'center') });
+		$('#follow').bind('click',function () { lightDialog.follow(this) });
+		$('#follow2').bind('click',function () { lightDialog.follow(this) });
+		$('#follow3').bind('click',function () { lightDialog.follow(this) });
+		$('#follow4').bind('click',function () { lightDialog.follow(this) });
+	});
+</script>
+</body>
+</html>
